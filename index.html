@@ -1,29 +1,29 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="ja">
 
 <head>
 <link href="style.css" rel="stylesheet" type="text/css">
-<title>ƒƒ‚’ </title>
+<title>ãƒ¡ãƒ¢å¸³</title>
 <script type="text/javascript">
-<!--ƒtƒ@ƒCƒ‹“Ç‚İ‚İˆ—-->
+<!--ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿å‡¦ç†-->
 function getFile(){
-	<!--ƒtƒ@ƒCƒ‹ŠJ‚­-->
+	<!--ãƒ•ã‚¡ã‚¤ãƒ«é–‹ã-->
 	var myFile = document.getElementById("tgtFile").files[0];
 
-	<!--ƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒN ƒeƒLƒXƒg‚Ì‚İŠJ‚¯‚é‚æ‚¤‚É-->
+	<!--ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯ ãƒ†ã‚­ã‚¹ãƒˆã®ã¿é–‹ã‘ã‚‹ã‚ˆã†ã«-->
 	if(!myFile.type.match('text.*')){
-		alert('ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B');
+		alert('ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚');
 		return;
 	}
 
-	<!--ƒtƒ@ƒCƒ‹–¼æ“¾ ID title‚É‘‚«‚İ-->
+	<!--ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾— ID titleã«æ›¸ãè¾¼ã¿-->
 	document.MA.title.value =myFile.name;
 
-	<!--ƒeƒLƒXƒgƒtƒ@ƒCƒ‹æ“¾ -->
+	<!--ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å–å¾— -->
 	if (myFile.type.indexOf("text") == 0) {  
 		var reader = new FileReader();
 		reader.onload = function(evt){
-		var txt = evt.target.result; //ƒtƒ@ƒCƒ‹“à—e‚ğ“Ç‚İo‚µ
+		var txt = evt.target.result; //ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ã‚’èª­ã¿å‡ºã—
 		document.MA.content.value = txt;
 		}
 	reader.readAsText(myFile,'utf-8');	
@@ -31,13 +31,13 @@ function getFile(){
 
 }
 
-<!--ƒtƒ@ƒCƒ‹•Û‘¶ˆ—-->
+<!--ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜å‡¦ç†-->
 function saveFile() {
 	var text = document.getElementById('content').value;
 	var name = document.getElementById('title').value || 'noname.txt';
 
 	if ((name.match(/txt$/)) != 'txt' && (name.match(/html$/)) != 'html'){
-		alert('Šg’£q‚Ítxt‚©html‚É‚µ‚Ä‚­‚¾‚³‚¢B');
+		alert('æ‹¡å¼µå­ã¯txtã‹htmlã«ã—ã¦ãã ã•ã„ã€‚');
 		return;
 	}
 
@@ -50,10 +50,10 @@ function saveFile() {
 	if ('download' in link){
 		link.download = name;
 		link.click();
-		alert("•Û‘¶‚µ‚Ü‚µ‚½Bƒ_ƒEƒ“ƒ[ƒhƒtƒ@ƒCƒ‹‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B")
+		alert("ä¿å­˜ã—ã¾ã—ãŸã€‚ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚")
 	} else {
 		window.navigator.msSaveOrOpenBlob(blob,name);
-		alert("•Û‘¶‚µ‚Ü‚·Bƒ|ƒbƒvƒAƒbƒv‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B")
+		alert("ä¿å­˜ã—ã¾ã™ã€‚ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚")
 	}
 }
 </script>
@@ -61,15 +61,15 @@ function saveFile() {
 <body>
 <div id="container">
 <form name ="MA">
-	<input type ="file" id ="tgtFile" value ="ƒtƒ@ƒCƒ‹‘I‘ğ">
-	<input type ="button" value ="ƒtƒ@ƒCƒ‹“Ç‚İ‚İ" onClick ="getFile()"><br>
+	<input type ="file" id ="tgtFile" value ="ãƒ•ã‚¡ã‚¤ãƒ«é¸æŠ">
+	<input type ="button" value ="ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿" onClick ="getFile()"><br>
 
-	<input type="text" id="title" size="80"  placeholder="ƒtƒ@ƒCƒ‹–¼(.txt .html)"><br>
+	<input type="text" id="title" size="80"  placeholder="ãƒ•ã‚¡ã‚¤ãƒ«å(.txt .html)"><br>
 	<textarea id="content" cols="81" rows="20">
-‚±‚±‚ÉƒeƒLƒXƒg‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B
+ã“ã“ã«ãƒ†ã‚­ã‚¹ãƒˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚
 	</textarea><br>
 
-	<button onclick="saveFile()">•Û‘¶</button><br>
+	<button onclick="saveFile()">ä¿å­˜</button><br>
 	<a id='DL'></a>
 </form>
 </div>
