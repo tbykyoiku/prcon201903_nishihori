@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<title>メモ帳</title>
+<script type="text/javascript">
+<!--ファイル読み込み処理-->
+function getFile(){
+	<!--ファイル開く-->
+	var myFile = document.getElementById("tgtFile").files[0];
+
+	<!--ファイルチェック テキストのみ開けるように-->
+	if(!myFile.type.match('text.*')){
+		alert('テキストファイルを選択してください。');
+		return;
+	}
+
+	<!--ファイル名取得 ID titleに書き込み-->
+	document.MA.title.value =myFile.name;
+
+	<!--テキストファイル取得 -->
+	if (myFile.type.indexOf("text") == 0) {  
+		var reader = new FileReader();
+		reader.onload = function(evt){
+		var txt = evt.target.result; //ファイル内容を読み出し
+		document.MA.content.value = txt;
+		}
+	reader.readAsText(myFile,'utf-8');	
+	}
+
+}
+
+<!--ファイル保存処理-->
+function saveFile() {
+	var text = document.getElementById('content').value;
+	var name = document.getElementById('title').value || 'noname.txt';
+
+	if ((name.match(/txt$/)) != 'txt' && (name.match(/html$/)) != 'html'){
+		alert('拡張子はtxtかhtmlにしてください。');
+		return;
+	}
+
+
+	var blob = new Blob( [text], {type: 'text/plain'} );
+
+	var link = document.getElementById('DL');
+	link.href = window.URL.createObjectURL(blob);
+
+	if ('download' in link){
+		link.download = name;
+		link.click();
+		alert("保存しました。ダウンロードファイルを確認してください。")
+	} else {
+		window.navigator.msSaveOrOpenBlob(blob,name);
+		alert("保存します。ポップアップを確認してください。")
+	}
+}
+</script>
+</head>
+<body>
+<div id="container">
+<form name ="MA">
+	<input type ="file" id ="tgtFile" value ="ファイル選択">
+	<input type ="button" value ="ファイル読み込み" onClick ="getFile()"><br>
+
+	<input type="text" id="title" size="80"  placeholder="ファイル名(.txt .html)"><br>
+	<textarea id="content" cols="81" rows="20">
+ここにテキストを入力してください。
+	</textarea><br>
+
+	<button onclick="saveFile()">保存</button><br>
+	<a id='DL'></a>
+</form>
+</div>
+
+
+</body>
+</html>
